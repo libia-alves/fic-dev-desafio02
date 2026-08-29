@@ -66,5 +66,13 @@ def validate_record(record: dict, categories: dict) -> tuple[str,list[str],dict]
         r["tempo_obj"]=None; reasons.append("tempo_invalido")
     for required in ("solicitante","descricao"):
         if not r.get(required,"").strip(): reasons.append(f"{required}_ausente")
-    classification="valido" if not reasons else ("incompleto" if any(x.endswith("_ausente") for x in reasons) else "invalido")
+
+    has_invalid = any(not x.endswith("_ausente") for x in reasons)
+    if not reasons:
+        classification = "valido"
+    elif has_invalid:
+        classification = "invalido"
+    else:
+        classification = "incompleto"
+
     return classification,reasons,r
