@@ -6,12 +6,19 @@ import re, unicodedata
 EMAIL_RE=re.compile(r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$")
 PROTO_RE=re.compile(r"^AT-\d{3}$")
 CEP_RE=re.compile(r"^\d{5}-?\d{3}$")
-FIELD_PATTERNS={
- "protocolo":r"Protocolo\s+(AT-\d{3}|PROTOCOLO\?)", "data":r"Data\s+(\d{2}/\d{2}/\d{4}|\d{4}-\d{2}-\d{2})",
- "solicitante":r"Solicitante\s+(.+?)\s+E-mail", "email":r"E-mail\s+(\S+)", "categoria":r"Categoria\s+(.+?)\s+Status",
- "status":r"Status\s+(Concluido|Pendente|Em atendimento)", "cep":r"CEP\s*/?\s*cidade\s+(\S+)",
- "tempo_minutos":r"Tempo\s+(-?\d+)?\s*min", "descricao":r"Problema\s+(.+?)\s+Solucao",
- "solucao":r"Solucao\s+(.+?)\s+Observacoes", "observacoes":r"Observacoes\s+(.+)$"}
+FIELD_PATTERNS = {
+    "protocolo": r"Protocolo\s*:?\s*(AT-\d+|PROTOCOLO\?)",
+    "data": r"Data\s*:?\s*(\d{2}/\d{2}/\d{4}|\d{4}-\d{2}-\d{2})",
+    "solicitante": r"Solicitante\s*:?\s*(.+?)\s+E-mail",
+    "email": r"E-mail\s*:?\s*(\S+)",
+    "categoria": r"Categoria\s*:?\s*(.+?)\s+Status",
+    "status": r"Status\s*:?\s*(Conclu[ií]do|Concluido|Pendente|Em [aA]tendimento)",
+    "cep": r"CEP\s*/?\s*cidade\s*:?\s*(\S+)",
+    "tempo_minutos": r"Tempo\s*:?\s*(-?\d+)?\s*min",
+    "descricao": r"Problema\s*:?\s*(.+?)\s+Solu[cç][aã]o",
+    "solucao": r"Solu[cç][aã]o\s*:?\s*(.+?)\s+Observa[cç][oõ]es",
+    "observacoes": r"Observa[cç][oõ]es\s*:?\s*(.+)$"
+}
 
 def clean_text(text: str) -> str:
     text=text.replace("\x00", " ")
