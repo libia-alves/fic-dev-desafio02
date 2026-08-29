@@ -10,3 +10,6 @@ output/*.csv
 output/*.json
 output/*.log
 output/graficos/*.png
+
+# Log de instalação (evidência de diagnóstico, não é código-fonte)
+pip_install_log.txt
