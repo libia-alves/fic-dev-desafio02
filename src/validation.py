@@ -4,7 +4,7 @@ from datetime import datetime
 import re, unicodedata
 
 EMAIL_RE=re.compile(r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$")
-PROTO_RE=re.compile(r"^AT-\d{3}$")
+PROTO_RE = re.compile(r"^AT-\d+$")
 CEP_RE=re.compile(r"^\d{5}-?\d{3}$")
 FIELD_PATTERNS = {
     "protocolo": r"Protocolo\s*:?\s*(AT-\d+|PROTOCOLO\?)",
