@@ -1,0 +1,290 @@
+2026-08-29 16:02:31,417 ERROR OCR falhou: atendimentos_digitalizados.pdf p.1
+Traceback (most recent call last):
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\libia\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\src\pipeline.py", line 46, in process_all
+    try: text=ocr_page(pdf,page["pagina"],cfg["ocr"]["dpi"],cfg["ocr"]["idioma"]); page["metodo"]="ocr"
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\src\ocr_processor.py", line 11, in ocr_page
+    images=convert_from_path(str(pdf_path),dpi=dpi,first_page=page_number,last_page=page_number)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-08-29 16:02:31,446 ERROR OCR falhou: atendimentos_digitalizados.pdf p.2
+Traceback (most recent call last):
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\libia\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\src\pipeline.py", line 46, in process_all
+    try: text=ocr_page(pdf,page["pagina"],cfg["ocr"]["dpi"],cfg["ocr"]["idioma"]); page["metodo"]="ocr"
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\src\ocr_processor.py", line 11, in ocr_page
+    images=convert_from_path(str(pdf_path),dpi=dpi,first_page=page_number,last_page=page_number)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-08-29 16:02:31,446 ERROR OCR falhou: atendimentos_digitalizados.pdf p.3
+Traceback (most recent call last):
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\libia\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\src\pipeline.py", line 46, in process_all
+    try: text=ocr_page(pdf,page["pagina"],cfg["ocr"]["dpi"],cfg["ocr"]["idioma"]); page["metodo"]="ocr"
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\src\ocr_processor.py", line 11, in ocr_page
+    images=convert_from_path(str(pdf_path),dpi=dpi,first_page=page_number,last_page=page_number)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-08-29 16:02:31,455 ERROR OCR falhou: atendimentos_digitalizados.pdf p.4
+Traceback (most recent call last):
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\libia\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\src\pipeline.py", line 46, in process_all
+    try: text=ocr_page(pdf,page["pagina"],cfg["ocr"]["dpi"],cfg["ocr"]["idioma"]); page["metodo"]="ocr"
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\src\ocr_processor.py", line 11, in ocr_page
+    images=convert_from_path(str(pdf_path),dpi=dpi,first_page=page_number,last_page=page_number)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-08-29 16:02:31,455 ERROR OCR falhou: atendimentos_digitalizados.pdf p.5
+Traceback (most recent call last):
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\libia\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\src\pipeline.py", line 46, in process_all
+    try: text=ocr_page(pdf,page["pagina"],cfg["ocr"]["dpi"],cfg["ocr"]["idioma"]); page["metodo"]="ocr"
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\src\ocr_processor.py", line 11, in ocr_page
+    images=convert_from_path(str(pdf_path),dpi=dpi,first_page=page_number,last_page=page_number)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-08-29 16:02:31,455 ERROR OCR falhou: atendimentos_digitalizados.pdf p.6
+Traceback (most recent call last):
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\libia\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\src\pipeline.py", line 46, in process_all
+    try: text=ocr_page(pdf,page["pagina"],cfg["ocr"]["dpi"],cfg["ocr"]["idioma"]); page["metodo"]="ocr"
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\src\ocr_processor.py", line 11, in ocr_page
+    images=convert_from_path(str(pdf_path),dpi=dpi,first_page=page_number,last_page=page_number)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-08-29 16:02:31,455 ERROR OCR falhou: atendimentos_digitalizados.pdf p.7
+Traceback (most recent call last):
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 581, in pdfinfo_from_path
+    proc = Popen(command, env=env, stdout=PIPE, stderr=PIPE)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\libia\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] O sistema não pode encontrar o arquivo especificado
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\src\pipeline.py", line 46, in process_all
+    try: text=ocr_page(pdf,page["pagina"],cfg["ocr"]["dpi"],cfg["ocr"]["idioma"]); page["metodo"]="ocr"
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\src\ocr_processor.py", line 11, in ocr_page
+    images=convert_from_path(str(pdf_path),dpi=dpi,first_page=page_number,last_page=page_number)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 127, in convert_from_path
+    page_count = pdfinfo_from_path(
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\libia\OneDrive\Área de Trabalho\libia\fic dev\python\FIC DEV - desafio 2\solucao_referencia_desafio_final_python_ia\venv\Lib\site-packages\pdf2image\pdf2image.py", line 607, in pdfinfo_from_path
+    raise PDFInfoNotInstalledError(
+pdf2image.exceptions.PDFInfoNotInstalledError: Unable to get page count. Is poppler installed and in PATH?
+2026-08-29 16:04:25,986 INFO Documento já processado; ignorando: atendimentos_digitais.pdf
+2026-08-29 16:04:26,002 INFO Documento já processado; ignorando: atendimentos_digitalizados.pdf
+2026-08-29 16:04:26,038 INFO Documento já processado; ignorando: atendimentos_duplicados.pdf
+2026-08-29 16:04:26,090 INFO Documento já processado; ignorando: atendimentos_incompletos.pdf
+2026-08-29 16:04:48,904 INFO No device provided, using cpu
+2026-08-29 16:04:49,528 INFO HTTP Request: GET https://huggingface.co/api/agent-harnesses "HTTP/1.1 200 OK"
+2026-08-29 16:04:49,686 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:04:49,686 WARNING Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-08-29 16:04:49,733 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/modules.json "HTTP/1.1 200 OK"
+2026-08-29 16:04:49,785 INFO HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/modules.json "HTTP/1.1 200 OK"
+2026-08-29 16:04:49,951 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:04:49,992 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-08-29 16:04:50,041 INFO HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-08-29 16:04:50,056 INFO Loading SentenceTransformer model from sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2.
+2026-08-29 16:04:50,213 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:04:50,260 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-08-29 16:04:50,416 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:04:50,464 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/README.md "HTTP/1.1 200 OK"
+2026-08-29 16:04:50,510 INFO HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/README.md "HTTP/1.1 200 OK"
+2026-08-29 16:04:50,695 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:04:50,743 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/modules.json "HTTP/1.1 200 OK"
+2026-08-29 16:04:50,910 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:04:50,953 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-08-29 16:04:50,995 INFO HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-08-29 16:04:51,173 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-08-29 16:04:51,341 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:04:51,382 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config.json "HTTP/1.1 200 OK"
+2026-08-29 16:04:51,424 INFO HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config.json "HTTP/1.1 200 OK"
+2026-08-29 16:04:51,663 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-08-29 16:04:52,104 INFO HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/xet-read-token/e8f8c211226b894fcb81acc59f3b34ba3efd5f42 "HTTP/1.1 200 OK"
+2026-08-29 16:05:29,226 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-08-29 16:05:29,531 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-08-29 16:05:29,855 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-08-29 16:05:30,013 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-08-29 16:05:30,162 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:05:30,207 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-08-29 16:05:30,261 INFO HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-08-29 16:05:30,451 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:05:30,482 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config.json "HTTP/1.1 200 OK"
+2026-08-29 16:05:30,655 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:05:30,688 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config.json "HTTP/1.1 200 OK"
+2026-08-29 16:05:30,878 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:05:30,912 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-08-29 16:05:31,060 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:05:31,111 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-08-29 16:05:31,263 INFO HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-08-29 16:05:31,435 INFO HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-08-29 16:05:31,600 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/tokenizer.json "HTTP/1.1 302 Found"
+2026-08-29 16:05:34,781 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/tokenizer.model "HTTP/1.1 404 Not Found"
+2026-08-29 16:05:34,991 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/added_tokens.json "HTTP/1.1 404 Not Found"
+2026-08-29 16:05:35,147 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/special_tokens_map.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:05:35,174 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/special_tokens_map.json "HTTP/1.1 200 OK"
+2026-08-29 16:05:35,246 INFO HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/special_tokens_map.json "HTTP/1.1 200 OK"
+2026-08-29 16:05:35,464 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+2026-08-29 16:05:37,263 INFO HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 "HTTP/1.1 200 OK"
+2026-08-29 16:05:37,824 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:05:37,857 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-08-29 16:05:37,898 INFO HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-08-29 16:05:38,074 INFO HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 "HTTP/1.1 200 OK"
+2026-08-29 16:06:01,230 INFO Documento já processado; ignorando: atendimentos_digitais.pdf
+2026-08-29 16:06:01,230 INFO Documento já processado; ignorando: atendimentos_digitalizados.pdf
+2026-08-29 16:06:01,264 INFO Documento já processado; ignorando: atendimentos_duplicados.pdf
+2026-08-29 16:06:01,308 INFO Documento já processado; ignorando: atendimentos_incompletos.pdf
+2026-08-29 16:06:12,378 INFO No device provided, using cpu
+2026-08-29 16:06:12,831 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:06:12,831 WARNING Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-08-29 16:06:12,878 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/modules.json "HTTP/1.1 200 OK"
+2026-08-29 16:06:13,035 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:06:13,081 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-08-29 16:06:13,081 INFO Loading SentenceTransformer model from sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2.
+2026-08-29 16:06:13,240 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:06:13,287 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-08-29 16:06:13,445 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:06:13,479 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/README.md "HTTP/1.1 200 OK"
+2026-08-29 16:06:13,634 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:06:13,682 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/modules.json "HTTP/1.1 200 OK"
+2026-08-29 16:06:13,839 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:06:13,872 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-08-29 16:06:14,027 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-08-29 16:06:14,200 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:06:14,233 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config.json "HTTP/1.1 200 OK"
+2026-08-29 16:06:14,532 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-08-29 16:06:14,706 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-08-29 16:06:14,864 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-08-29 16:06:15,036 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-08-29 16:06:15,209 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:06:15,241 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-08-29 16:06:15,415 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:06:15,447 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config.json "HTTP/1.1 200 OK"
+2026-08-29 16:06:15,636 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:06:15,668 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/config.json "HTTP/1.1 200 OK"
+2026-08-29 16:06:15,829 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:06:15,871 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-08-29 16:06:16,029 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:06:16,074 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-08-29 16:06:16,237 INFO HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-08-29 16:06:16,393 INFO HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-08-29 16:06:18,049 INFO HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 "HTTP/1.1 200 OK"
+2026-08-29 16:06:18,459 INFO HTTP Request: HEAD https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-08-29 16:06:18,490 INFO HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2/e8f8c211226b894fcb81acc59f3b34ba3efd5f42/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-08-29 16:06:18,663 INFO HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 "HTTP/1.1 200 OK"

@@ -1,0 +1,65 @@
+{
+  "total_documentos": 4,
+  "total_paginas": 27,
+  "total_registros": 75,
+  "por_classificacao": {
+    "valido": 50,
+    "invalido": 12,
+    "duplicado": 11,
+    "incompleto": 2
+  },
+  "percentual_por_classificacao": {
+    "valido": 66.67,
+    "invalido": 16.0,
+    "duplicado": 14.67,
+    "incompleto": 2.67
+  },
+  "por_categoria": {
+    "Python e bibliotecas": 12,
+    "Conectividade": 11,
+    "VSCode e ferramentas": 11,
+    "Atividades e arquivos": 10,
+    "Instalacao de software": 10,
+    "Acesso e senha": 10,
+    "Ambiente virtual": 9,
+    "categoria desconhecida": 2
+  },
+  "por_status": {
+    "Pendente": 26,
+    "Em atendimento": 25,
+    "Concluido": 24
+  },
+  "por_municipio": {
+    "Cáceres": 8,
+    "Cuiabá": 8
+  },
+  "por_uf": {
+    "MT": 16
+  },
+  "tempo_medio": 50.82608695652174,
+  "tempo_mediano": 48.0,
+  "tempo_desvio_padrao": 22.93850892747514,
+  "categoria_maior_volume": "Python e bibliotecas",
+  "categoria_maior_tempo_medio": "VSCode e ferramentas",
+  "tempo_medio_por_categoria": {
+    "Acesso e senha": 57.0,
+    "Ambiente virtual": 22.44,
+    "Atividades e arquivos": 52.11,
+    "Conectividade": 32.4,
+    "Instalacao de software": 69.11,
+    "Python e bibliotecas": 43.18,
+    "VSCode e ferramentas": 77.7,
+    "categoria desconhecida": 68.0
+  },
+  "percentual_ocr": 0.0,
+  "erros_por_tipo": {
+    "CepIndisponivel": 6,
+    "PDFInfoNotInstalledError": 7,
+    "Duplicidade": 11
+  },
+  "erros_por_etapa": {
+    "consulta_cep": 6,
+    "ocr": 7,
+    "deduplicacao": 11
+  }
+}

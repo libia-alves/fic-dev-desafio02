@@ -17,11 +17,19 @@ def clean_text(text: str) -> str:
     text=text.replace("\x00", " ")
     return re.sub(r"\s+", " ", text).strip()
 
+BLANK_MARKERS={"[vazio]",""}
+
 def extract_fields(text: str) -> dict:
     clean=clean_text(text); result={}
     for key,pattern in FIELD_PATTERNS.items():
         match=re.search(pattern,clean,re.I|re.S)
-        result[key]=match.group(1).strip() if match else ""
+        value=match.group(1).strip() if match else ""
+        # BUG-001 (corrigido): os PDFs oficiais usam o marcador literal "[vazio]"
+        # para representar um campo propositalmente ausente (ex.: "Solicitante
+        # [vazio]"). O código original tratava esse texto como um valor válido
+        # e não vazio, então registros com campos obrigatórios ausentes eram
+        # classificados como "valido"/"invalido" em vez de "incompleto".
+        result[key]="" if value.lower() in BLANK_MARKERS else value
     return result
 
 def parse_date(value: str):

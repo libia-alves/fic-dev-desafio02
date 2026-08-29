@@ -16,12 +16,12 @@ class AskRequest(BaseModel):
     categoria:str|None=None
 
 @app.get("/health")
-def health(): return {"status":"ok","modo":"rag" if os.getenv("OPENAI_API_KEY") else "recuperacao_local"}
+def health(): return {"status":"ok","modo":"rag" if (os.getenv("OPENAI_API_KEY") or os.getenv("GOOGLE_API_KEY")) else "recuperacao_local"}
 
 @app.post("/ask")
 def ask(payload:AskRequest):
     try:
         sources=semantic_query(cfg,payload.pergunta,payload.top_k,payload.categoria)
-        return answer(payload.pergunta,sources,os.getenv("OPENAI_MODEL","gpt-4.1-mini"))
+        return answer(payload.pergunta,sources)
     except Exception as exc:
         raise HTTPException(status_code=503,detail=f"Consulta indisponível: {type(exc).__name__}") from exc
