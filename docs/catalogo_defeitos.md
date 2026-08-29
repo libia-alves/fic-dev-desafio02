@@ -170,14 +170,19 @@ do Tesseract para Windows.
 |---|---|
 | **Severidade** | Baixa |
 | **RF afetado** | RF13 ("informar quando os documentos não sustentarem uma resposta") |
-| **Status** | Não corrigido (documentado como melhoria — ver `docs/criticas_melhorias.md`, P2) |
+| **Status** | **Corrigido** |
 
-**Descrição:** `rag.local_answer()` sempre retorna a mesma mensagem ("foram
-recuperados os trechos mais semelhantes...") mesmo quando `sources` está vazio
+**Descrição:** `rag.local_answer()` sempre retornava a mesma mensagem ("foram
+recuperados os trechos mais semelhantes...") mesmo quando `sources` estava vazio
 (nenhum chunk relevante encontrado, ex.: filtro de categoria sem correspondência).
 O RF13 exige informar explicitamente quando os documentos não sustentam uma
-resposta; hoje isso só é implícito pela lista de fontes vazia, não por uma mensagem
-clara.
+resposta; antes isso só era implícito pela lista de fontes vazia, não por uma
+mensagem clara.
+
+**Correção aplicada:** `local_answer` agora retorna uma mensagem explícita e o
+campo `sustentada_pelos_documentos: false` quando não há fontes; `answer()`
+verifica isso antes de sequer tentar chamar o LLM. Teste de regressão:
+`tests/test_rag.py`.
 
 ---
 
@@ -207,12 +212,15 @@ completo **continuam pendentes** — listados em `docs/criticas_melhorias.md`.
 |---|---|
 | **Severidade** | Baixa (latente — não se manifesta com os 4 arquivos oficiais atuais) |
 | **RF afetado** | RF06 ("permitir recriar ou reutilizar o banco de forma previsível") |
-| **Status** | Não corrigido (documentado como melhoria — ver `docs/criticas_melhorias.md`, P3) |
+| **Status** | **Corrigido** |
 
-**Descrição:** `models.Documento.nome_arquivo` tem `unique=True`, mas a deduplicação
-de documentos já é feita corretamente por `hash_sha256` (conteúdo, não nome) em
-`pipeline.py`. Se dois arquivos com **nomes iguais mas conteúdos diferentes** forem
-processados (ex.: reenvio de um PDF corrigido com o mesmo nome), a segunda
-inserção falha com `IntegrityError` não tratado, interrompendo todo o pipeline —
-o que viola o requisito não funcional "a aplicação não poderá encerrar todo o
-processamento por causa de um único registro inválido".
+**Descrição:** `models.Documento.nome_arquivo` tinha `unique=True`, mas a
+deduplicação de documentos já é feita corretamente por `hash_sha256` (conteúdo,
+não nome) em `pipeline.py`. Se dois arquivos com **nomes iguais mas conteúdos
+diferentes** fossem processados (ex.: reenvio de um PDF corrigido com o mesmo
+nome), a segunda inserção falhava com `IntegrityError` não tratado, interrompendo
+todo o pipeline — o que violava o requisito não funcional "a aplicação não poderá
+encerrar todo o processamento por causa de um único registro inválido".
+
+**Correção aplicada:** removido `unique=True` de `nome_arquivo`. Teste de
+regressão: `tests/test_models.py`.

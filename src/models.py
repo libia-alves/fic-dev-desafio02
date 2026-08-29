@@ -10,7 +10,12 @@ class Base(DeclarativeBase):
 class Documento(Base):
     __tablename__ = "documentos"
     id: Mapped[int] = mapped_column(primary_key=True)
-    nome_arquivo: Mapped[str] = mapped_column(String(255), unique=True)
+    # BUG-008 (corrigido): unique=True aqui era redundante com a deduplicacao
+    # real (por hash_sha256, ja unique abaixo) e mais fragil: dois arquivos de
+    # nomes iguais e conteudos diferentes derrubavam o pipeline inteiro com um
+    # IntegrityError nao tratado, violando o requisito de nao interromper todo
+    # o processamento por causa de um unico registro.
+    nome_arquivo: Mapped[str] = mapped_column(String(255))
     hash_sha256: Mapped[str] = mapped_column(String(64), unique=True)
     total_paginas: Mapped[int] = mapped_column(Integer)
     metodo: Mapped[str] = mapped_column(String(30))
