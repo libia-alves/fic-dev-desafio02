@@ -37,7 +37,7 @@ def ask(payload: AskRequest):
             cfg, payload.pergunta, payload.top_k, payload.categoria, payload.protocolo
         )
         return answer(
-            payload.pergunta, sources, os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
+            payload.pergunta, sources, os.getenv("OPENAI_MODEL", "openai/gpt-4o-mini")
         )
     except Exception as exc:
         raise HTTPException(
