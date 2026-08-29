@@ -10,16 +10,26 @@ import pandas as pd
 
 
 def build_indicators(df: pd.DataFrame) -> dict:
-    times=pd.to_numeric(df.get("tempo_minutos"),errors="coerce").dropna().to_numpy(dtype=float)
+    times = pd.to_numeric(df.get("tempo_minutos"), errors="coerce").dropna().to_numpy(dtype=float)
     return {
-      "total_registros":int(len(df)),
-      "por_classificacao":df.get("classificacao",pd.Series(dtype=str)).value_counts(dropna=False).to_dict(),
-      "por_categoria":df.get("categoria",pd.Series(dtype=str)).value_counts(dropna=False).to_dict(),
-      "por_status":df.get("status",pd.Series(dtype=str)).value_counts(dropna=False).to_dict(),
-      "tempo_medio":float(np.mean(times)) if times.size else None,
-      "tempo_mediano":float(np.median(times)) if times.size else None,
-      "tempo_desvio_padrao":float(np.std(times)) if times.size else None,
-      "percentual_ocr":float((df.get("metodo",pd.Series(dtype=str))=="ocr").mean()*100) if len(df) else 0.0,
+        # 1. Adicionado: Conta quantos arquivos únicos de PDF (documentos) foram processados
+        "total_documentos": int(df.get("documento", pd.Series(dtype=str)).nunique()), 
+        
+        "total_registros": int(len(df)),
+        "por_classificacao": df.get("classificacao", pd.Series(dtype=str)).value_counts(dropna=False).to_dict(),
+        "por_categoria": df.get("categoria", pd.Series(dtype=str)).value_counts(dropna=False).to_dict(),
+        "por_status": df.get("status", pd.Series(dtype=str)).value_counts(dropna=False).to_dict(),
+        
+        # 2. Adicionado: Agrupa e conta os atendimentos por cidade
+        "por_municipio": df.get("municipio", pd.Series(dtype=str)).value_counts(dropna=False).to_dict(),
+        
+        # 3. Adicionado: Agrupa e conta quantos foram por OCR e quantos por extração direta
+        "por_metodo": df.get("metodo", pd.Series(dtype=str)).value_counts(dropna=False).to_dict(),
+        
+        "tempo_medio": float(np.mean(times)) if times.size else None,
+        "tempo_mediano": float(np.median(times)) if times.size else None,
+        "tempo_desvio_padrao": float(np.std(times)) if times.size else None,
+        "percentual_ocr": float((df.get("metodo", pd.Series(dtype=str)) == "ocr").mean() * 100) if len(df) else 0.0,
     }
 
 def export_results(df: pd.DataFrame, output_dir: str | Path, csv_name: str, json_name: str) -> dict:
