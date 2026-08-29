@@ -1,7 +1,9 @@
 """Extração por regex, normalização e validação dos registros."""
 from __future__ import annotations
+
+import re
+import unicodedata
 from datetime import datetime
-import re, unicodedata
 
 EMAIL_RE=re.compile(r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$")
 PROTO_RE = re.compile(r"^AT-\d+$")

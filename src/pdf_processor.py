@@ -1,7 +1,10 @@
 """Extração direta de texto e encaminhamento de páginas para OCR."""
 from __future__ import annotations
+
 from pathlib import Path
+
 from pypdf import PdfReader
+
 
 def extract_pdf_pages(path: str | Path, min_chars: int = 40) -> list[dict]:
     reader=PdfReader(str(path)); pages=[]

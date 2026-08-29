@@ -1,6 +1,8 @@
 """Persistência e consulta dos chunks no ChromaDB."""
 from __future__ import annotations
+
 from pathlib import Path
+
 
 class ChromaStore:
     def __init__(self,directory:str|Path,collection:str):

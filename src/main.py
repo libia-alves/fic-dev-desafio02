@@ -1,10 +1,13 @@
 """Entrada de linha de comando."""
 from __future__ import annotations
+
 import argparse
+
 from .config import load_config
-from .pipeline import process_all
 from .indexer import build_index, semantic_query
+from .pipeline import process_all
 from .rag import answer
+
 
 def main():
     parser=argparse.ArgumentParser(description="Processa e consulta os atendimentos")

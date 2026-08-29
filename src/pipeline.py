@@ -1,19 +1,25 @@
 """Orquestração do processamento ponta a ponta."""
 from __future__ import annotations
-from pathlib import Path
+
+import json
+import logging
+import re
 from hashlib import sha256
-import json, logging, re
+from pathlib import Path
+
 import pandas as pd
 from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
-from .config import resolve
-from .database import create_session_factory, session_scope, find_by_protocol
-from .models import Documento, Atendimento, Chunk, ErroProcessamento
-from .pdf_processor import extract_pdf_pages
-from .ocr_processor import ocr_page
-from .validation import extract_fields, validate_record, clean_text
-from .text_processor import preprocess, split_chunks, metadata_json
+
 from .analytics import export_results, generate_charts
+from .config import resolve
+from .database import create_session_factory, find_by_protocol, session_scope
+from .models import Atendimento, Chunk, Documento, ErroProcessamento
+from .ocr_processor import ocr_page
+from .pdf_processor import extract_pdf_pages
+from .text_processor import metadata_json, preprocess, split_chunks
+from .validation import clean_text, extract_fields, validate_record
+
 
 def configure_logging(path: Path):
     path.parent.mkdir(parents=True,exist_ok=True)

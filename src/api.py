@@ -1,8 +1,11 @@
 """API HTTP de consulta."""
 from __future__ import annotations
+
 import os
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
+
 from .config import load_config
 from .indexer import semantic_query
 from .rag import answer

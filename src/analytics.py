@@ -1,10 +1,13 @@
 """Indicadores, exportações e gráficos."""
 from __future__ import annotations
-from pathlib import Path
+
 import json
+from pathlib import Path
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+
 
 def build_indicators(df: pd.DataFrame) -> dict:
     times=pd.to_numeric(df.get("tempo_minutos"),errors="coerce").dropna().to_numpy(dtype=float)

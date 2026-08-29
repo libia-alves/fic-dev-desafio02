@@ -1,12 +1,16 @@
 """Indexação dos chunks persistidos no ChromaDB."""
 from __future__ import annotations
-from pathlib import Path
+
 import json
+from pathlib import Path
+
 from sqlalchemy import create_engine, select
 from sqlalchemy.orm import Session
-from .models import Chunk
+
 from .embeddings import EmbeddingService
+from .models import Chunk
 from .vector_store import ChromaStore
+
 
 def build_index(cfg: dict) -> int:
     root=Path(cfg["_root"]); url=cfg["banco"]["url"]

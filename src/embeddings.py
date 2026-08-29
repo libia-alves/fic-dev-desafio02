@@ -1,6 +1,8 @@
 """Geração de embeddings e comparação por cosseno."""
 from __future__ import annotations
+
 import numpy as np
+
 
 class EmbeddingService:
     def __init__(self, model_name: str):

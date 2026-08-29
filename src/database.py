@@ -1,10 +1,14 @@
 """Criação do banco, sessão e operações CRUD."""
 from __future__ import annotations
-from contextlib import contextmanager
-from sqlalchemy import create_engine, select
-from sqlalchemy.orm import sessionmaker, Session
-from .models import Base, Atendimento
+
 import os
+from contextlib import contextmanager
+
+from sqlalchemy import create_engine, select
+from sqlalchemy.orm import Session, sessionmaker
+
+from .models import Atendimento, Base
+
 
 def create_session_factory(url: str):
     # Se for SQLite, verifica se a pasta existe e cria caso não exista

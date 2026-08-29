@@ -1,6 +1,9 @@
 """Limpeza linguística e divisão de texto em chunks."""
 from __future__ import annotations
-import json, re, unicodedata
+
+import json
+import re
+import unicodedata
 
 STOPWORDS={"a","o","as","os","de","da","do","das","dos","e","em","um","uma","para","por","com","que","no","na"}
 
