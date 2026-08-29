@@ -1,7 +1,8 @@
 # Sistema Inteligente de Processamento e Consulta de Atendimentos de Suporte
 
 Desafio FIC_DEV — Auditoria, correção e implantação de um sistema gerado por IA
-(Módulo COD 001). Discente: **Libia Canhete Alves e Cruz**.
+(Módulo COD 001). 
+Discente: **Libia Canhete Alves e Cruz, Kevin Medeiros e Leandro**
 
 > Esta base de código foi recebida como um projeto "aparentemente completo,
 > informado como gerado por Inteligência Artificial, mas ainda não validado"

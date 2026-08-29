@@ -20,7 +20,7 @@ def _build_chat_model(model:str|None):
     provider=os.getenv("LLM_PROVIDER","openai" if os.getenv("OPENAI_API_KEY") else ("gemini" if os.getenv("GOOGLE_API_KEY") else "")).lower()
     if provider=="gemini":
         from langchain_google_genai import ChatGoogleGenerativeAI
-        return ChatGoogleGenerativeAI(model=model or os.getenv("GEMINI_MODEL","gemini-1.5-flash"),google_api_key=os.getenv("GOOGLE_API_KEY"),temperature=0)
+        return ChatGoogleGenerativeAI(model=model or os.getenv("GEMINI_MODEL","gemini-3.6-flash"),google_api_key=os.getenv("GOOGLE_API_KEY"),temperature=0)
     if provider=="openai":
         from langchain_openai import ChatOpenAI
         return ChatOpenAI(model=model or os.getenv("OPENAI_MODEL","gpt-4.1-mini"),temperature=0)
