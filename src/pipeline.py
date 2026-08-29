@@ -21,6 +21,7 @@ from .ocr_processor import ocr_page
 from .pdf_processor import extract_pdf_pages
 from .text_processor import metadata_json, preprocess, split_chunks
 from .validation import clean_text, extract_fields, validate_record
+from .indexer import build_index
 
 
 def configure_logging(path: Path):
@@ -209,4 +210,9 @@ def process_all(cfg: dict) -> pd.DataFrame:
     if not df.empty:
         export_results(df, output, cfg["saida"]["csv"], cfg["saida"]["indicadores"])
         generate_charts(df, resolve(root, cfg["saida"]["graficos"]))
+
+    logging.info("Iniciando indexação no ChromaDB...")
+    total_indexado = build_index(cfg)
+    logging.info("Total de chunks indexados no ChromaDB: %s", total_indexado)
+    
     return df
