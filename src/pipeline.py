@@ -1,14 +1,23 @@
 """Orquestração do processamento ponta a ponta."""
+
 from __future__ import annotations
-from pathlib import Path
+
+import json
+import logging
+import re
 from hashlib import sha256
-import json, logging, re
+from pathlib import Path
+
 import pandas as pd
 from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
+
+from .analytics import export_results, generate_charts
 from .config import resolve
-from .database import create_session_factory, session_scope, find_by_protocol
-from .models import Documento, Atendimento, Chunk, ErroProcessamento
+from .cep_client import lookup_cep
+from .database import create_session_factory, find_by_protocol, session_scope
+from .models import Atendimento, Chunk, Documento, ErroProcessamento
+from .ocr_processor import ocr_page
 from .pdf_processor import extract_pdf_pages
 from .ocr_processor import ocr_page
 from .validation import extract_fields, validate_record, clean_text
@@ -17,12 +26,41 @@ from .analytics import export_results, generate_charts
 from .cep_client import lookup_cep
 
 def configure_logging(path: Path):
-    path.parent.mkdir(parents=True,exist_ok=True)
-    logging.basicConfig(level=logging.INFO,format="%(asctime)s %(levelname)s %(message)s",handlers=[logging.FileHandler(path,encoding="utf-8"),logging.StreamHandler()])
+    path.parent.mkdir(parents=True, exist_ok=True)
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)s %(message)s",
+        handlers=[logging.FileHandler(path, encoding="utf-8"), logging.StreamHandler()],
+    )
+
 
 def split_records(page_text: str) -> list[str]:
-    parts=re.split(r"(?=Protocolo\s+(?:AT-\d{3}|PROTOCOLO\?))",clean_text(page_text),flags=re.I)
-    return [p.strip() for p in parts if re.search(r"Protocolo\s+",p,re.I)]
+    parts = re.split(
+        r"(?=Protocolo\s+(?:AT-\d{3}|PROTOCOLO\?))", clean_text(page_text), flags=re.I
+    )
+    return [p.strip() for p in parts if re.search(r"Protocolo\s+", p, re.I)]
+
+
+def enrich_cep_record(record: dict, cfg: dict) -> dict:
+    cep = (record.get("cep") or "").strip()
+    enriched = dict(record)
+    enriched["municipio"] = None
+    enriched["uf"] = None
+
+    if not cep:
+        return enriched
+
+    base_url = cfg.get("api", {}).get("cep_base_url")
+    timeout = int(cfg.get("api", {}).get("timeout_segundos", 8))
+    if not base_url:
+        return enriched
+
+    data = lookup_cep(cep, base_url, timeout=timeout)
+    if data:
+        enriched["municipio"] = data.get("municipio")
+        enriched["uf"] = data.get("uf")
+    return enriched
+
 
 def process_all(cfg: dict) -> pd.DataFrame:
     root=Path(cfg["_root"]); output=resolve(root,cfg["saida"]["diretorio"]); output.mkdir(parents=True,exist_ok=True)
@@ -44,17 +82,24 @@ def process_all(cfg: dict) -> pd.DataFrame:
 
     with session_scope(factory) as session:
         for pdf in sorted(pdf_dir.glob(cfg["entrada"]["padrao"])):
-            digest=sha256(pdf.read_bytes()).hexdigest(); page_data=extract_pdf_pages(pdf,cfg["ocr"]["min_caracteres_extracao_direta"])
-            if session.scalar(select(Documento).where(Documento.hash_sha256==digest)):
-                logging.info("Documento já processado; ignorando: %s",pdf.name)
+            digest = sha256(pdf.read_bytes()).hexdigest()
+            page_data = extract_pdf_pages(
+                pdf, cfg["ocr"]["min_caracteres_extracao_direta"]
+            )
+            if session.scalar(select(Documento).where(Documento.hash_sha256 == digest)):
+                logging.info("Documento já processado; ignorando: %s", pdf.name)
                 continue
             total_documentos+=1; total_paginas+=len(page_data)
             method="ocr" if all(p["metodo"]=="ocr_pendente" for p in page_data) else "extracao_direta"
             doc=Documento(nome_arquivo=pdf.name,hash_sha256=digest,total_paginas=len(page_data),metodo=method); session.add(doc); session.flush()
             for page in page_data:
-                text=page["texto"]
-                if page["metodo"]=="ocr_pendente":
-                    try: text=ocr_page(pdf,page["pagina"],cfg["ocr"]["dpi"],cfg["ocr"]["idioma"]); page["metodo"]="ocr"
+                text = page["texto"]
+                if page["metodo"] == "ocr_pendente":
+                    try:
+                        text = ocr_page(
+                            pdf, page["pagina"], cfg["ocr"]["dpi"], cfg["ocr"]["idioma"]
+                        )
+                        page["metodo"] = "ocr"
                     except Exception as exc:
                         registrar_erro(session,doc.id,page["pagina"],"ocr",type(exc).__name__,str(exc)); logging.exception("OCR falhou: %s p.%s",pdf.name,page["pagina"]); continue
                 for raw in split_records(text):

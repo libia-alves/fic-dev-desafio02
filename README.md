@@ -2,7 +2,7 @@
 
 Desafio FIC_DEV — Auditoria, correção e implantação de um sistema gerado por IA
 (Módulo COD 001). 
-Discente: **Libia Canhete Alves e Cruz, Kevin Medeiros e Leandro**
+Discente: **Libia Canhete Alves e Cruz, Kevin da Silva Medeiros e Leandro José Conceição Souza**
 
 > Esta base de código foi recebida como um projeto "aparentemente completo,
 > informado como gerado por Inteligência Artificial, mas ainda não validado"

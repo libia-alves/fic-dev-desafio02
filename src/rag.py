@@ -1,6 +1,10 @@
 """Recuperação local e resposta RAG opcional com OpenAI/LangChain."""
 from __future__ import annotations
+from dotenv import load_dotenv
+
 import os
+
+load_dotenv()
 
 SYSTEM="Responda somente com base no contexto. Se a resposta não estiver sustentada, diga que não há informação suficiente. Cite os protocolos utilizados."
 

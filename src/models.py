@@ -1,8 +1,20 @@
 """Modelos SQLAlchemy do domínio."""
 from __future__ import annotations
-from datetime import datetime, date
-from sqlalchemy import String, Text, Integer, Float, Date, DateTime, ForeignKey, UniqueConstraint
+
+from datetime import date, datetime
+
+from sqlalchemy import (
+    Date,
+    DateTime,
+    Float,
+    ForeignKey,
+    Integer,
+    String,
+    Text,
+    UniqueConstraint,
+)
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+
 
 class Base(DeclarativeBase):
     pass

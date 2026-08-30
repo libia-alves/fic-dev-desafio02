@@ -1,6 +1,8 @@
 """Cliente tolerante a falhas para consulta de CEP."""
 from __future__ import annotations
+
 import requests
+
 
 def lookup_cep(cep: str, base_url: str, timeout: int=8) -> dict | None:
     digits="".join(ch for ch in cep if ch.isdigit())
