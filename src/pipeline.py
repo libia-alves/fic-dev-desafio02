@@ -13,17 +13,15 @@ from sqlalchemy import select
 from sqlalchemy.exc import IntegrityError
 
 from .analytics import export_results, generate_charts
-from .config import resolve
 from .cep_client import lookup_cep
+from .config import resolve
 from .database import create_session_factory, find_by_protocol, session_scope
 from .models import Atendimento, Chunk, Documento, ErroProcessamento
 from .ocr_processor import ocr_page
 from .pdf_processor import extract_pdf_pages
-from .ocr_processor import ocr_page
-from .validation import extract_fields, validate_record, clean_text
-from .text_processor import preprocess, split_chunks, metadata_json
-from .analytics import export_results, generate_charts
-from .cep_client import lookup_cep
+from .text_processor import metadata_json, preprocess, split_chunks
+from .validation import clean_text, extract_fields, validate_record
+
 
 def configure_logging(path: Path):
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -40,26 +38,6 @@ def split_records(page_text: str) -> list[str]:
     )
     return [p.strip() for p in parts if re.search(r"Protocolo\s+", p, re.I)]
 
-
-def enrich_cep_record(record: dict, cfg: dict) -> dict:
-    cep = (record.get("cep") or "").strip()
-    enriched = dict(record)
-    enriched["municipio"] = None
-    enriched["uf"] = None
-
-    if not cep:
-        return enriched
-
-    base_url = cfg.get("api", {}).get("cep_base_url")
-    timeout = int(cfg.get("api", {}).get("timeout_segundos", 8))
-    if not base_url:
-        return enriched
-
-    data = lookup_cep(cep, base_url, timeout=timeout)
-    if data:
-        enriched["municipio"] = data.get("municipio")
-        enriched["uf"] = data.get("uf")
-    return enriched
 
 
 def process_all(cfg: dict) -> pd.DataFrame:
